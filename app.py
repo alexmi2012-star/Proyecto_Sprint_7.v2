@@ -7,7 +7,6 @@ st.header("Dashboard de anuncios de coches")
 df = pd.read_csv("vehicles_us.csv")
 
 show_top10 = st.checkbox("Mostrar Top 10 vehículos")
-show_cheap10= st.checkbox("Mostrar Top 10 vehículos baratos")
 build_hist = st.checkbox("Mostrar histograma del odómetro")
 build_scatter = st.checkbox("Mostrar gráfico de dispersión precio vs odómetro")
 show_types2 = st.checkbox("Mostrar distribución de vehículos por tipo")
@@ -28,21 +27,6 @@ if show_top10:
         "odometer",
         "condition"
     ]]
-if show_cheap10:
-    st.write("Los 10 vehículos con menor precio en el dataset")
-    cheap10 = df.sort_values(by="price", ascending=True).head(10)
-    
-    # Seleccionar columnas importantes
-    cheap10 = cheap10[[
-        "price",
-        "model_year",
-        "model",
-        "type",
-        "odometer",
-        "condition"
-    ]]
-
-    st.dataframe(cheap10, use_container_width=True)
 if build_hist:
     st.write("Distribución del kilometraje")
     fig = px.histogram(df, x="odometer")
