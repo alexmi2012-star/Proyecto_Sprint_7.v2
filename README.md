@@ -19,4 +19,3 @@ Esta aplicación web permite explorar un conjunto de datos de anuncios de venta 
 - Plotly Express
 - Streamlit
 
-## Cómo ejecutar localmente
